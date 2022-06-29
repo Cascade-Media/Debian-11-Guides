@@ -7,18 +7,18 @@ This guide aims to assist with setting up and managing a web server running a ra
 The guide will contain limited information on using and debugging the packages that will be installed or mentioned.
 
 The current list of packages being used in this guide can be found below.
-- [x]	Unattended Upgrades
-- [x]	OpenSSH Server
-- [x]	UFW
-- [x]	GUFW
-- [x]	PHP-FPM
-- [x]	Composer
-- [x]	MySQL
-- []	PostgreSQL
-- []	Gitlab CE
-- []	NPM
-- []	Node JS
-- []	MongoDB
+- [✔️]	Unattended Upgrades
+- [✔️]	OpenSSH Server
+- [✔️]	UFW
+- [✔️]	GUFW
+- [✔️]	PHP-FPM
+- [✔️]	Composer
+- [✔️]	MySQL
+- [❌]	PostgreSQL
+- [❌]	Gitlab CE
+- [❌]	NPM
+- [❌]	Node JS
+- [❌]	MongoDB
 
 ## Setup Considerations
 Before continuing, it is expected that you have prior experience of Linux in understanding how to get around Debian, install and configure packages locally or through SSH, setup user permissions, basic security and network management.
