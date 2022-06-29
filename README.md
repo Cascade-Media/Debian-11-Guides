@@ -98,4 +98,22 @@ Root will now no longer be able to make use of SSH
 Once Done we should create or modify an existing user
 See: Secure Shell (SSH) & Secure File Transfer Protocol (SFTP) setup
 
+## UFW
+UFW also known as Uncomplicated Firewall is a system tool that allows you to open, block and manage UDP and TCP ports within your system, restricting what tools can be accessed over a network.
+Both UFW and Gufw are excellent packages to enhance the security of your system.
+
+Guides on these packages can be found below.
+Documentation
+-	[Ubuntu Documentation - UFW - Uncomplicated Firewall](https://help.ubuntu.com/community/UFW)
+-	[Ubuntu Documentation - Gufw](https://help.ubuntu.com/community/Gufw)
+-	[Debian Documentation - Uncomplicated Firewall (ufw)](https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29)
+-	[Ostechnix - How To Setup Firewall With Gufw On Linux Desktop](https://ostechnix.com/how-to-setup-firewall-with-gufw-on-linux-desktop/)
+
+### Unblocking Ports
+For applications you will be allowing through, you MUST allow the ports, otherwise services such as SFTP, SSH or SCP may not work.
+
+#### Standard Ports
+TPC : 80 / 8080 : HTTP
+TCP : 443 : HTTPS
+TCP : 22 : SSH & SCP
 
