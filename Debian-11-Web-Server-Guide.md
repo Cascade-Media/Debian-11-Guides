@@ -487,3 +487,5 @@ Checks if the server is active or failed to activate.
 ```
 $ sudo systemctl status apache2
 ```
+#### Notes
+Sites enabled won’t get your website online immediately, you will need to perform some network configurations and port forwarding on both your Domain Name Server (DNS) and on your own router.  
