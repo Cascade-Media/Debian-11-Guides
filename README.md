@@ -127,5 +127,35 @@ $ sudo apt install certbot python3-certbot-apache
 ```
 ### Usage
 Apache will be making use of cerbot to create and renew certificates.  
-To see the process, see: [Register SSL Certificate](#registerSslCertificate)
+To see the process, see: [Register SSL Certificate](#registerSslCertificate)  
 
+## Network Config
+This part of the guide is to help setup and access your server and its applications.  
+You may require a static IP address to setup and access the server during configuration.  
+
+### Firewall Config
+Should set UFW / GUFW to allow for the relevant ports of the applications you are using.  
+Settings for the UFW should correspond with the port number and port protocol.  
+
+### DNS setup
+Domain Name Server (DNS) will be required to be setup by your domain provider, most providers allow you to add DNS records.  
+
+With an IPV4 IP address you will need to create an “A” Type record, for IPV6 IP addresses you must use an “AAAA” Type record.    
+### Port Forwarding and Configuration
+#### Opening Ports
+Port forwarding is done by opening ports on your router, depending on your router there may be different ways to achieve this, it is recommended to read your routers guide / manual to assist with this process.  
+#### Apache
+Allow Apache to Listen for Ports.  
+By Default Ports.conf will be listening for port 80 and port 443.  
+
+If you operate other devices that use port 80 to renew their SSL certificates such as NAS, you can renew certificates through a process known as DNS-01.  
+
+Port 80 allows certificates to be registered on a challenge known as HTTP-01.  
+
+##### Open ports.conf
+$ sudo nano /etc/apache2/ports.conf    
+
+##### Ports config
+Apply the appropriate port listening settings to port.conf  
+
+[IMAGE]
