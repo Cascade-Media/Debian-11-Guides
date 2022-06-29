@@ -126,6 +126,6 @@ This will be relevant for setting up websites, API’s and applications such as 
 $ sudo apt install certbot python3-certbot-apache
 ```
 ### Usage
-Apache will be making use of cerbot to create and renew certificates.
+Apache will be making use of cerbot to create and renew certificates.  
 To see the process, see: [Register SSL Certificate](#registerSslCertificate)
 
