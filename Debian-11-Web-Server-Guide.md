@@ -665,7 +665,7 @@ see: [Export is not working on v5.1.3 (PHP version: 8.1.4) #17477](https://githu
 ### Requirements
 MariaDB and Apache **MUST** be installed, before continuing.  
 
-Apache: [Installation & Setup](#php-fpm)  
+Apache: [Installation & Setup](#install-apache2-with-php-81)  
 MariaDB: [Installation & Setup](#MariaDB)    
 In this guide, Apache was installed with the PHP-FPM configuration, you may install a different variant at your own discretion.    
 
@@ -675,3 +675,10 @@ This module is required for phpMyAdmin
 $ sudo apt-get install php-mbstring
 ```
 
+### Installation & Setup
+#### Install PHP extensions required for PHPMyAdmin
+See: [How To Install phpMyAdmin on Debian 11/Debian 10](https://computingforgeeks.com/install-phpmyadmin-with-apache-on-debian/)
+```
+$ sudo apt -y update
+$ sudo apt -y install wget php php-cgi php-pear php-mbstring libapache2-mod-php php-common php-phpseclib php-mysql php8.1-mysql
+```
