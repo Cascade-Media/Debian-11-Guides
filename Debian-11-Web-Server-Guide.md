@@ -525,4 +525,24 @@ Obscurity is not a security measure, but it will make any potential attacks on t
 
 When an error page is shown such as a 404, page not found, we get the following error message showcasing what Apache version, Operating System and Port the website is running on.  
 
+![image](https://user-images.githubusercontent.com/50721672/176329212-3fa753b1-616d-45e0-b415-4a4c2787561e.png)
 
+#### Open security.conf
+```
+$ sudo nano /etc/apache2/conf-enabled/security.conf
+```
+
+#### Make Changes 
+```
+ServerTokens Prod  
+ServerSignature Off
+```  
+
+#### Save and Restart server
+```
+systemctl restart apache2  
+```
+
+After making the changes, we now get vastly less information regarding the server setup.
+
+![image](https://user-images.githubusercontent.com/50721672/176329275-d3625f41-c4f4-4b82-9876-1a18e8e7d49c.png)
