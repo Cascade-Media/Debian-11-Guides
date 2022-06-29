@@ -1,8 +1,12 @@
 # Debian 11 Web Server
 Quick setup & installation
 
+**Note**
+This script does not contain UFW
+
 **Warning**
-This script is currently untested.
+This script is currently untested.  
+
 
 ```.sh
 sudo apt-get install unattended-upgrades apt-listchanges
@@ -128,5 +132,5 @@ sudo nano /var/www/html/services/phpmyadmin/config.inc.php
     # /** 
     # * Temporary Directory
     # */
-    $cfg['TempDir'] = '/var/www/html/services/phpmyadmin/temp';
+    # $cfg['TempDir'] = '/var/www/html/services/phpmyadmin/temp';
 ```
