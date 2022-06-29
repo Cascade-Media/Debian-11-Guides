@@ -757,3 +757,63 @@ it is possible to setup a domain name to point to the server, this will be cover
 #### Login Debugging
 In the event you are unable to login, it may help to clear you application memory browser cache.  
 
+## User Management
+### Basic Setup on Linux Server
+#### Give a non-root account sudo privileges
+```
+$ usermod -aG sudo exampleUsername
+```
+#### Change ownership of users own folder from root to self
+```
+$ sudo chown -R exampleUsername ~/
+```
+
+#### Give file write permissions to users SSH folder
+```
+$ sudo chmod -R 755
+```
+
+#### To understand what 755 is doing with chmod.
+See: [Chmod Calculator: An awesome Chmod Calculator to convert Linux file permissions between different formats](https://chmod-calculator.com/)
+
+### Secure Shell (SSH) & Secure File Transfer Protocol (SFTP) setup
+This SSH key pairing guide is between a Windows 10 local machine and Linux Debian 11 server that has been tested on the local network.  
+
+Before continuing you MUST ensure that port 22 has been opened on your router, if you are running a virtual machine you will need to also allow port 22 access in order to access the server.  
+
+Additionally when throwing the ssh key up to the server, the target folder MUST exist or be created beforehand, otherwise the process will not be possible.  
+
+#### Generating an SSH Key with Windows Powershell
+This method allows us to create an SSH user key for SSH terminal access into the server.  
+You will need to use powershell to create and upload the key.  
+##### RSA Options
+```
+ssh-keygen -t rsa -b 2048 -C user@domain.com
+ssh-keygen -t rsa -b 4096 -C user@domain.com
+```
+
+Note: This key will be stored under your system username in a .ssh folder on Windows.  
+See: C:\Users\YourUsername\.ssh
+
+#### PuTTY
+If you wish for a user to use SFTP, you may need to create a separate PuTTY public and private key pair using  PuTTYgen.  
+
+#### Throwing SSH Public Key up to Linux server
+The following command takes your public RSA encryption key and stores it on the target server for the target user using the SCP(Secure Copy) method.  
+
+If you’re not sure what your IP address is, there are many services that can help.  
+See: [myip.com](https://www.myip.com/)
+
+#### Template SSH Login over Windows Powershell
+```
+scp $env:USERPROFILE/.ssh/<<DIRECTORY>>/<<FILENAME>>.pub <<SERVER USERNAME>>@<<SERVER IP>>:~/.ssh 
+```
+Once entering your ssh key directory and settings hit enter.  
+If you are prompt to continue connecting, type YES and hit enter.  
+To add the key you will be required to enter the password for the user specified in the command above.  
+
+![image](https://user-images.githubusercontent.com/50721672/176331270-5ecd6b02-e7a9-4e79-8966-5c96684bc44b.png)
+
+On completing file transfer, you should have a public ssh key located on your server.  
+You can find it under /home/username/.ssh/
+![image](https://user-images.githubusercontent.com/50721672/176331338-a97ba175-8f8b-4be0-9b82-6669f636796f.png)
