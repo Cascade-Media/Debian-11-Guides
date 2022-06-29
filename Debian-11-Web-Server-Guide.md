@@ -861,4 +861,75 @@ username@domainOrIpAddress-yyyy-mm-dd_24hTime
     - Select and open your recently generated public key stored “C:\Users\Username\.ssh”
     - You may need to login with your Linux server account
     - If Successful should prompt the key was installed on the server
+![image](https://user-images.githubusercontent.com/50721672/176332212-1c743691-2dc2-460c-81e1-c2150799e1a6.png)
+
+## Applying Folder Permissions
+Once SFTP and Apache are setup, you could start creating folders for each user’s projects.  
+
+In the section, Single SFTP User. you will be setting up directories for each individual user as /var/www/html/username.  
+
+In the section, Group sharing access. you can setup multiple users to have access to one or many parts of a project within a company or user account.  
+
+### Single SFTP User
+Make a user folder for the SFTP user 
+```
+$ sudo mkdir /var/www/html/username
+```
+#### Assign Permissions to directories
+```
+$ sudo chmod  755 /var/
+$ sudo chmod  755 /var/www/
+$ sudo chmod  755 /var/www/html/
+$ sudo chmod  755 /var/www/html/username
+```
+![image](https://user-images.githubusercontent.com/50721672/176332273-a45b542c-07b0-4845-86cb-d2d9a0ac56a3.png)
+
+#### Give Root ownership to directories
+Giving root ownership allows Apache to read the paths and contents.  
+```
+$ sudo chown root:root /var/
+$ sudo chown root:root /var/www/
+$ sudo chown root:root /var/www/html
+$ sudo chown root:root /var/www/html/username
+$ sudo chown username:username /var/www/html/username/projectDirectory
+```
+
+
+### Group sharing access.
+If you have multiple users that need access to work on a specific folder or folders by usergroup, you can setup and assign groups to each user, limiting access to which projects they can access or services they can use.  
+
+For example If you wanted “user 1” to have access to api.example.com and www.example.com, but only wanted to “user 2” to be able to work on www.example.com within a company, we can assign specific privileges for each user to allow that.  
+#### Create the user group
+```
+$ sudo groupadd userGroupName
+```
+#### Assign user(‘s) to group
+```
+$ sudo usermod -a -G userGroupName username1
+$ sudo usermod -a -G userGroupName username2
+```
+#### Make a company or user folder for the SFTP user 
+```
+$ sudo mkdir /var/www/html/company
+```
+#### Assign Permissions to directories
+```
+$ sudo chmod  750 /var/
+$ sudo chmod  750 /var/www/
+$ sudo chmod  750 /var/www/html/
+$ sudo chmod  750 /var/www/html/company
+```
+#### Make a projects folder 
+```
+$ sudo mkdir /var/www/html/company/projects
+```
+#### Assign Permissions to projects
+```
+$ sudo chmod 770 /var/www/html/company/project
+```
+![image](https://user-images.githubusercontent.com/50721672/176332502-48d12ad9-3b2f-4bf4-a796-6f19a9ffb15a.png)
+#### Change group ownership of directory
+```
+$ sudo chgrp userGroupName -R /var/www/html/company/project
+```
 
