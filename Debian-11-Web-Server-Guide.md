@@ -721,7 +721,7 @@ $ sudo chown www-data:www-data /var/www/html/services/phpmyadmin/temp/
 $ sudo cp /var/www/html/services/phpmyadmin/config.sample.inc.php  /var/www/html/services/phpmyadmin/config.inc.php
 ```
 #### Secure phpMyAdmin with secret passphrase
-Generate a secret passphrase and use it in the blowfish secret config.  
+[Generate a secret passphrase](https://www.lastpass.com/features/password-generator) and use it in the blowfish secret config.  
 a very strong password method is advised and MUST BE 32 characters long.  
 
 #### Open phpMyAdmin’s configuration file
@@ -731,5 +731,17 @@ $ sudo nano /var/www/html/services/phpmyadmin/config.inc.php
 
 #### Enter or modify the following
 ```php
-$cfg[‘blowfish_secret] = ‘YOUR  SECRET PASSPHRASE’;
+# Modify
+/**
+ * This is needed for cookie based authentication to encrypt password in
+ * cookie. Needs to be 32 chars long.
+ */
+$cfg['blowfish_secret'] = 'YOUR SECRET PASSPHRASE'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
+
+# Add
+/** 
+ * Temporary Directory
+ */
+$cfg['TempDir'] = '/var/www/html/services/phpmyadmin/temp';
+
 ```
