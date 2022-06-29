@@ -489,3 +489,23 @@ $ sudo systemctl status apache2
 ```
 #### Notes
 Sites enabled won’t get your website online immediately, you will need to perform some network configurations and port forwarding on both your Domain Name Server (DNS) and on your own router.  
+
+### Registering SSL Certificates
+In order for your website to be secure, it will require an SSL certificate on the HTTPS configuration.  
+This is possible with the help of OpenSSH’s LetsEncrypt through port 80 or Port 443, which are required in order to request certificates.  
+See: [Lets Encrypt - Challenge Types](https://letsencrypt.org/docs/challenge-types/)
+
+#### Register a certificate
+```
+$ sudo certbot –apache
+```
+- Select your site by ID available.  
+- Select the most valid option available regarding your certificate.  
+
+#### Restart Apache
+```
+$ sudo systemctl restart apache2
+```
+
+#### Check for SSL certificate is valid
+We can do this by checking the padlock on the target https domain in a browser such as Chrome, Edge, Firefox, etc..
