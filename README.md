@@ -14,3 +14,6 @@ A guide to help setup and manage an Web Server with the following packages.
 - Composer
 - UFW & GUFW
 - OpenSSH Server
+
+## Copyright
+2022 Cascade Media 
