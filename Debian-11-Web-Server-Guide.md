@@ -174,7 +174,7 @@ ssh -p 22 -i ~/.ssh/privateKey username@serverIPaddress
 ### PHP-FPM
 #### About
 PHP-FPM / PHP FastCGI Process Manager was chosen over mod_php as mod_php can lock out processes and disrupt performance of websites running, there are additional security benefits that PHP-FPM offer as well as optimal performance, allowing for of up to 300% - 350% faster loading times over mod_php.  
-### Installation & Setup
+#### Installation & Setup
 See: [LinuxCapable - Install/Upgrade PHP 8.1 on Debian 11 Bullseye](https://www.linuxcapable.com/how-to-install-php-8-1-on-debian-11-bullseye/)  
 #### Update Debian System
 ```
