@@ -616,6 +616,7 @@ $ sudo apt update
 $ sudo apt install mariadb-server mariadb-client
 ```
 #### Verify MariaDB version installed and check status
+```
 $ mariadb –version
 $ systemctl status mariadb
 ```
@@ -639,14 +640,17 @@ $ sudo mysql_secure_installation
 •	Remove test database and access to it? [Y/n] : Y
 •	Reload privilege tables now? [Y/n] : Y
 ```
+
 #### Upgrading MariaDB
 ```
 $ sudo mariadb-upgrade
 ```
+
 #### Uninstall MariaDB
 ```
 $ sudo apt autoremove mariadb-server mariadb-client --purge -y
 ```
+
 #### Remove bash script repository
 ```
 $ sudo rm /etc/apt/sources.list.d/mariadb.list
