@@ -827,3 +827,38 @@ ssh -p <<SSH PORT>> -i ~/.ssh/<<PRIVATE KEY>> username@<<SERVER IP>>
 You will need to modify the command above for your own server, once done and entered into a terminal, you may be prompt to enter the password you gave your ssh key, followed by your target users password.  
 
 ![image](https://user-images.githubusercontent.com/50721672/176331683-2e511b4d-0f11-4550-84eb-89db9dbc0db9.png)
+
+## Generating an SSH Key with WinSCP for SFTP
+This method will allow us to create and throw SSH keys up to the web server which is necessary for the SFTP user(‘s) to access the sftp server space securely using RSA key authentication to login.  
+### prerequisites
+To start the process, you MUST have WinSCP installed on your Windows machine and the remote web server must be running with OpenSSH and Port 22 enabled.  
+
+### Setup
+-	Open WinSCP
+-	Create a New Session
+-	Enter the credentials for your new SFTP account
+
+Protocol: SFTP
+Port: 22 “or whatever port you are using SSH on”
+Username: “Your Linux server username”
+Password: “Leave Blank Not required”
+Host: “Network Static IP or DNS domain”
+
+-	Click Advanced
+-	Select SSH > Authentication
+-	Select Tools > Generate New Key Pair with PuTTygen
+-	Generate the Key “Advised using RSA 2048 or RSA 4096”
+-	Optional but advised, give the keys a passphrase for extra security
+-	Save They Public and Private Key to “C:\Users\Username\.ssh”
+o	Naming convention example
+username@domainOrIpAddress-yyyy-mm-dd_24hTime
+- Save as a backup the Public Key for pasting into OpenSSH authorized_keys
+-	Save as a backup the key fingerprint
+-	Close PuTTygen
+-	Click Advanced (again)
+-	Select SSH > Authentication
+-	Select Tools > Install Public Key into Server
+o	Select and open your recently generated public key stored “C:\Users\Username\.ssh”
+o	You may need to login with your Linux server account
+o	If Successful should prompt the key was installed on the server
+
