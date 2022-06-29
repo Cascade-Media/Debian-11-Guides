@@ -963,33 +963,35 @@ The settings I have used are supplied below, once you enter the settings, you ca
     # or target user group 
 
     # Example of overriding settings on a per-user basis
-    #Match User example
+    # Match User example
     #   X11Forwarding no
     #   AllowTcpForwarding no
     #   PermitTTY no
     #   ForceCommand cvs server
 
-    # Subsystem sftp interal-sftp
-    # SFTP User
-    Match User sftp_username
+    # SFTP User groups & systems access
+    Match user linux_user_00
         X11Forwarding no
         AllowTcpForwarding no
-
-    # Disable the below 3 settings (#) and set passwordAuthentication
-    # to yes for sftp_users and restart sshd if you need to 
-    # create or renew an SSH certificate for WinSCP usage
-        Chrootdirectory /var/www/html/username
+        Chrootdirectory /var/www/html
+        #Prior directory config /.linux_user_00
         ForceCommand internal-sftp -d /default
-        AuthorizedKeysFile .ssh/ key_01.pub .ssh/authorized_keys
-        # PasswordAuthentication yes 
+        #PasswordAuthentication yes
+        AuthorizedKeysFile .ssh/authorized_keys
 
-    # SSH User
-    Match user ssh_username
-        X11Forwarding no
+    # SSH Visual Studio Code User
+    Match user linux_user_01
+        x11Forwarding No
         AllowTcpForwarding yes
-        AuthorizedKeysFile .ssh/key_03.pub
         PasswordAuthentication no
+        AuthorizedKeysFile .ssh/linux_user_01@serverName-2022-06-29_1702.pub    
 
+    # System SSH User
+    Match user linux_user_02
+        X11Forwarding no
+        AllowTcpForwarding no
+        PasswordAuthentication no
+        AuthorizedKeysFile .ssh/linux_user_02@serverName-2022_06_28-2320.pub
 ```
 Once you have the settings configured to your requirements, save and close the file, then restart SSH and SSHD.  
 ```
