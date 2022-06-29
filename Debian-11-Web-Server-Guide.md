@@ -330,3 +330,14 @@ $memory_limit = ini_get('memory_limit');
 echo $memory_limit;
 ```
 
+### Required Modules
+Required for installation of software in this guide.  
+```
+$ sudo a2enmod headers
+$ sudo a2enmod rewrite
+$ sudo a2enmod ssl
+$ sudo a2enmod proxy
+$ sudo a2enmod proxy_http
+$ sudo systemctl restart apache2
+```
+
