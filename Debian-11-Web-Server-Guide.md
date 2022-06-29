@@ -817,3 +817,13 @@ To add the key you will be required to enter the password for the user specified
 On completing file transfer, you should have a public ssh key located on your server.  
 You can find it under /home/username/.ssh/
 ![image](https://user-images.githubusercontent.com/50721672/176331338-a97ba175-8f8b-4be0-9b82-6669f636796f.png)
+
+### Accessing the Server through local terminal or PowerShell
+From here we can attempt to SSH into the server from the local machine with use of the paired private key.  
+
+#### Throwing SSH Key from Local System to Server
+ssh -p <<SSH PORT>> -i ~/.ssh/<<PRIVATE KEY>> username@<<SERVER IP>>
+
+You will need to modify the command above for your own server, once done and entered into a terminal, you may be prompt to enter the password you gave your ssh key, followed by your target users password.  
+
+![image](https://user-images.githubusercontent.com/50721672/176331683-2e511b4d-0f11-4550-84eb-89db9dbc0db9.png)
