@@ -1,5 +1,5 @@
 # Debian 11 Web Server Guide
-## Covering Packages, setup and management
+# Covering Packages, setup and management
 
 ## About
 This guide aims to assist with setting up and managing a web server running a range of powerful and complex packages.
