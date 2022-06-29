@@ -158,6 +158,6 @@ $ sudo nano /etc/apache2/ports.conf
 ##### Ports config
 Apply the appropriate port listening settings to port.conf  
 
-![image](https://user-images.githubusercontent.com/50721672/176326901-386ed93b-56b6-4ccc-a255-ab6027e83a41.png)
+![image](https://user-images.githubusercontent.com/50721672/176326968-ca39ef67-14d3-4ebb-bb06-8de79f2ae25a.png)
 
 
