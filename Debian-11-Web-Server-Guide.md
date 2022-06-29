@@ -341,3 +341,23 @@ $ sudo a2enmod proxy_http
 $ sudo systemctl restart apache2
 ```
 
+### Debug Notes
+#### Slow Curl Requests
+If at any point you are using packages such as Symfony’s HttpClient, Guzzle or Curl to make HTTP requests to an external API, there’s a possibility you may get an issue with requests taking a long time to execute.  
+
+If this is the case, it could be down to a conflict between ipv4 (A) and ipv6(AAAA) trying to make use of the same sockets and port while resolving the DNS.  
+
+See Sources: 
+-	[Slow DNS on Linux fix (ipv6/ipv4 conflict)](https://aarvik.dk/disable-ipv6/)
+-	[resolv.conf(5) — Linux manual page](https://man7.org/linux/man-pages/man5/resolv.conf.5.html)
+To resolve this, we can change some settings in the resolver configuration file.
+
+#### Open the Resolver configuration file
+```
+$ sudo nano /etc/resolv.conf
+```
+
+#### Add the following to a newline
+```
+options single-request-reopen
+```
