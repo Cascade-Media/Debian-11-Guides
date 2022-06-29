@@ -393,9 +393,10 @@ This command will allow you to create the file(‘s) necessary to manage your do
 
 ##### HTTP Config
 ```
-$ sudo nano /etc/apache2/sites-available/filename-http.conf
+$ sudo nano /etc/apache2/sites-available/www.example.com-http.conf
 ```
-###### Template
+Apply the HTTP Template to the file and adjust for your requirements. 
+###### HTTP Template
 ```conf
 # Organised File Naming Examples
 # username_domainName_subdomain_http
@@ -416,4 +417,46 @@ $ sudo nano /etc/apache2/sites-available/filename-http.conf
     RewriteCond %{SERVER_NAME} =www.example.com
     RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
 </VirtualHost>
+```
+
+##### HTTPS Config
+Apply the HTTPs Template to the file and adjust for your requirements. 
+```
+$ sudo nano /etc/apache2/sites-available/www.example.com-https.conf
+```
+###### HTTPs Template
+```conf
+<IfModule mod_ssl.c>
+    <VirtualHost *:443>
+        ServerName www.example.com
+        ServerAdmin admin@example.com
+
+        # Server Config     
+        DocumentRoot /var/www/html/.username/example.com/www.example.com
+
+        <Directory /var/www/html/.username/example.com/www.example.com>
+            AllowOverride All    
+            Order Allow,Deny        
+            Allow from All           
+        </Directory>
+    
+        <FilesMatch /(/?|/.*)>
+            Order allow,deny
+        </FilesMatch>
+
+        <FilesMatch "\.(cgi|shtml|phtml|php)$">
+            SSLOptions +stdEnvVars
+        </FilesMatch>   
+        
+        # Logging
+        ErrorLog ${APACHE_LOG_DIR}/example.com-error.log
+        CustomLog ${APACHE_LOG_DIR}/example.com-access.log combined
+        
+        # Resolve Older Browser issues      
+        BrowserMatch "MSIE [2-6]"nokeepalive-ssl-unclean-shutdown downgrade-1.0 force-response-1.0
+        BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown
+
+        # SSL
+    </VirtualHost>
+</IfModule>
 ```
