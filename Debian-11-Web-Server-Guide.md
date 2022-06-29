@@ -1,8 +1,6 @@
 # Debian 11 Web Server Guide
 Packages, setup and management
 
-Copyright 2022 Cascade Media
-
 ## Contents
 - [Debian 11 Web Server Guide](#debian-11-web-server-guide)
   * [About](#about)
@@ -586,3 +584,72 @@ systemctl restart apache2
 After making the changes, we now get vastly less information regarding the server setup.
 
 ![image](https://user-images.githubusercontent.com/50721672/176329275-d3625f41-c4f4-4b82-9876-1a18e8e7d49c.png)
+
+
+## MariaDB
+### About
+MariaDB is a powerful, well-known and widely used open-source MySQL relational database.  
+It has all the core features to support major web applications such as WordPress, Drupal, Symfony, Laravel and other Dynamic frameworks and content management systems.  
+### Installation & Setup
+See: [LinuxCapable - How to Install or Upgrade MariaDB 10.8 on Debian 11 Bullseye](https://www.linuxcapable.com/install-upgrade-mariadb-10-8-on-debian-11-bullseye/)
+#### Update Debian System
+```
+$ sudo apt update && sudo apt upgrade -y
+```
+#### Install Required Dependencies
+```
+$ sudo apt-get install curl software-properties-common dirmngr ca-certificates apt-transport-https -y
+```
+#### Install curl (If not already installed)
+Curl is required for the installation of the next step. 
+``` 
+$ sudo apt install curl -y
+$ sudo apt update
+```
+#### Import MariaDB 10.8 GPG Keys & Repository
+```
+$ curl -LsS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash -s -- --mariadb-server-version=10.8
+$ sudo apt update
+```
+#### Install or Upgrade MariaDB
+```
+$ sudo apt install mariadb-server mariadb-client
+```
+#### Verify MariaDB version installed and check status
+$ mariadb –version
+$ systemctl status mariadb
+```
+#### Additional Commands
+```
+Start MariaDB : $ sudo systemctl start mariadb
+Stop MariaDB : $ sudo systemctl stop mariadb
+Enable on Startup : $ sudo systemctl enable mariadb
+Restart MariaDB : $ sudo systemctl restart mariadb
+```
+
+#### Run MariaDB Security Script
+```
+$ sudo mysql_secure_installation
+```
+```
+•	Switch to unix_socket authentication [Y/n] : Y
+•	Change the root password? [Y/n] : Y
+•	Remove anonymous users? [Y/n] : Y
+•	Disallow root login remotely? [Y/n] Y
+•	Remove test database and access to it? [Y/n] : Y
+•	Reload privilege tables now? [Y/n] : Y
+```
+#### Upgrading MariaDB
+```
+$ sudo mariadb-upgrade
+```
+#### Uninstall MariaDB
+```
+$ sudo apt autoremove mariadb-server mariadb-client --purge -y
+```
+#### Remove bash script repository
+```
+$ sudo rm /etc/apt/sources.list.d/mariadb.list
+$ sudo apt update
+```
+
