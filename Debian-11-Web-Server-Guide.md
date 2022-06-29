@@ -665,9 +665,9 @@ see: [Export is not working on v5.1.3 (PHP version: 8.1.4) #17477](https://githu
 ### Requirements
 MariaDB and Apache **MUST** be installed, before continuing.  
 
-Apache: [Installation & Setup](#php-fpm)
-MariaDB: [Installation & Setup](#MariaDB)  
-In this guide, Apache was installed with the PHP-FPM configuration, you may install a different variant at your own discretion.  
+Apache: [Installation & Setup](#php-fpm)  
+MariaDB: [Installation & Setup](#MariaDB)    
+In this guide, Apache was installed with the PHP-FPM configuration, you may install a different variant at your own discretion.    
 
 #### mbstring Apache Module
 This module is required for phpMyAdmin
