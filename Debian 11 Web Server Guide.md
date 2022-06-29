@@ -790,9 +790,10 @@ You can find it under /home/username/.ssh/
 ### Accessing the Server through local terminal or PowerShell
 From here we can attempt to SSH into the server from the local machine with use of the paired private key.  
 
-#### Throwing SSH Key from Local System to Server
+#### SSH from Local System to Server
+Default Port: 22
 ```
-ssh -p <<SSH PORT>> -i ~/.ssh/<<PRIVATE KEY>> username@<<SERVER IP>>
+ssh -p <<PORT>> -i ~/.ssh/<<PRIVATE_KEY>> <<LINUX_USER>>@<<IP_ADDRESS>>
 ```
 
 You will need to modify the command above for your own server, once done and entered into a terminal, you may be prompt to enter the password you gave your ssh key, followed by your target users password.  
