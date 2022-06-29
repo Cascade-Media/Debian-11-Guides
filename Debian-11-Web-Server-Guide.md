@@ -386,3 +386,34 @@ $ sudo mkdir /var/www/html/username/example.com/www.example.com
 ```
 $ sudo chown -R username:www-data /var/www/html/username
 ```
+
+### Creating your own Server settings
+#### Create the Configuration file
+This command will allow you to create the file(‘s) necessary to manage your domain, above are the provided HTTP and HTTPS settings, you will need to make a config file for each of these for a single domain in order to secure the connection.   
+
+##### HTTP Config
+```
+$ sudo nano /etc/apache2/sites-available/filename-http.conf
+```
+###### Template
+```conf
+# Organised File Naming Examples
+# username_domainName_subdomain_http
+# username_domainName_subdomain_https
+
+# Virtual Host can operate on Port 80 or Port 8080 as normal.
+# However, Port 80 is required to register SSL certificates
+
+# Virtual Host ports can be almost any number, but must use port 
+# at the end of the domain name e.g. example.com:12080 
+<VirtualHost *:80>
+    ServerName www.example.com
+
+    # Server Config
+    Redirect permanent / https://www.example.com
+
+    RewriteEngine on
+    RewriteCond %{SERVER_NAME} =www.example.com
+    RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+</VirtualHost>
+```
