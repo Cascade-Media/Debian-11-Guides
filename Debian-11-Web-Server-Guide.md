@@ -460,3 +460,30 @@ $ sudo nano /etc/apache2/sites-available/www.example.com-https.conf
     </VirtualHost>
 </IfModule>
 ```
+
+### Enable Sites
+By Default, sites are disabled by Apache, you MUST enable your sites and reload Apache before the sites can be located on the server when visiting the designated domain name.  
+
+##### Enable Sites
+```
+$ sudo a2ensite www.example.com-http.conf
+$ sudo a2ensite www.example.com-https.conf
+```
+##### Disable Sites
+Not required, but useful to know if you wish to disable an active site, possibly for debugging.  
+```
+$ sudo a2dissite filename-https.conf
+```
+##### Reload Apache2
+```
+$ sudo systemctl reload apache2
+```
+##### Restart Apache2
+```
+$ sudo systemctl restart apache2
+```
+##### Status of Apache2
+Checks if the server is active or failed to activate.  
+```
+$ sudo systemctl status apache2
+```
