@@ -21,6 +21,7 @@ The current list of packages being used in this guide can be found below.
 []	MongoDB
 
 ## Setup Considerations
+{: .alert .alert-warning}
 Before continuing, it is expected that you have prior experience of Linux in understanding how to get around Debian, install and configure packages locally or through SSH, setup user permissions, basic security and network management.
 
 ### Network
