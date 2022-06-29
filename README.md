@@ -21,8 +21,9 @@ The current list of packages being used in this guide can be found below.
 []	MongoDB
 
 ## Setup Considerations
+Before continuing
 {: .alert .alert-warning}
-Before continuing, it is expected that you have prior experience of Linux in understanding how to get around Debian, install and configure packages locally or through SSH, setup user permissions, basic security and network management.
+It is expected that you have prior experience of Linux in understanding how to get around Debian, install and configure packages locally or through SSH, setup user permissions, basic security and network management.
 
 ### Network
 This guide will be making use of a static IP address to manage the network, if you have a dynamic IP address “an address that changes frequently”, you may have to make use of DNS services.
