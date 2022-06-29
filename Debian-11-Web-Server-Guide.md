@@ -298,3 +298,31 @@ $ composer about
 #### Notes
 Once composer is installed and running with the configuration above, it should be usable on any system account that can access /usr/local/bin/composer  
 
+## Apache Servers Config
+Once your Apache server is up and running with PHP-FPM, you can locate your root folder for php projects under /var/www/html/  
+
+an index.php file will be located within this directory and is accessible in your browser through localhost or 127.0.0.1 and should output the Apache2 Debian default page which contains basic configuration guidance.  
+
+### Memory Limit
+While PHP doesn’t require much memory to operate, a few frameworks and applications may require a higher memory allocation, by default php makes use of 128Mb.
+For projects running Symfony or Laravel, this might be required as in some cases developer tool panels may not appear.  
+
+#### Increasing your memory limit
+```
+$ sudo nano /etc/php/8.1/fpm/php.ini
+```
+#### Locate the line
+```
+memory_limit = 128M
+```
+![image](https://user-images.githubusercontent.com/50721672/176327952-8fa5b8bf-1db5-426a-96c5-261a94fd5103.png)
+#### Update line and save file
+```
+memory_limit 256M
+```
+#### Restart PHP
+```
+$ sudo systemctl restart php8.1-fpm
+#### 
+
+
