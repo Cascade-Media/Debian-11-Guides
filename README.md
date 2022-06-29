@@ -2,7 +2,7 @@
 These Guide are here to assist and simplify the process of setting up a Linux Debian projects.
 
 ## About Debian 11 Useful Commands.md
-a Simplified, broken down list of Linux Debian commands that may be useful
+a simplified, broken down list of Linux Debian commands that may be useful
 
 ## About Debian 11 Web Server Guide.md
 A guide to help setup and manage an Web Server with the following packages.
