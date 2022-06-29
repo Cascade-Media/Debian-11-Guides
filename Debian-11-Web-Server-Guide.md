@@ -323,6 +323,10 @@ memory_limit 256M
 #### Restart PHP
 ```
 $ sudo systemctl restart php8.1-fpm
-#### 
-
+```
+#### Testing in PHP
+```php
+$memory_limit = ini_get('memory_limit');
+echo $memory_limit;
+```
 
