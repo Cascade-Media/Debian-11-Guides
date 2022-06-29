@@ -836,13 +836,14 @@ To start the process, you MUST have WinSCP installed on your Windows machine and
 ### Setup
 -	Open WinSCP
 -	Create a New Session
--	Enter the credentials for your new SFTP account
+-	Enter the credentials for your new SFTP account  
 
-Protocol: SFTP
-Port: 22 “or whatever port you are using SSH on”
-Username: “Your Linux server username”
-Password: “Leave Blank Not required”
-Host: “Network Static IP or DNS domain”
+Protocol: SFTP  
+Port: 22 “or whatever port you are using SSH on”  
+Username: “Your Linux server username”  
+Password: “Leave Blank Not required”  
+Host: “Network Static IP or DNS domain”  
+  
 
 -	Click Advanced
 -	Select SSH > Authentication
@@ -850,7 +851,7 @@ Host: “Network Static IP or DNS domain”
 -	Generate the Key “Advised using RSA 2048 or RSA 4096”
 -	Optional but advised, give the keys a passphrase for extra security
 -	Save They Public and Private Key to “C:\Users\Username\.ssh”
-o	Naming convention example
+ * Naming convention example
 username@domainOrIpAddress-yyyy-mm-dd_24hTime
 - Save as a backup the Public Key for pasting into OpenSSH authorized_keys
 -	Save as a backup the key fingerprint
@@ -858,7 +859,7 @@ username@domainOrIpAddress-yyyy-mm-dd_24hTime
 -	Click Advanced (again)
 -	Select SSH > Authentication
 -	Select Tools > Install Public Key into Server
-o	Select and open your recently generated public key stored “C:\Users\Username\.ssh”
-o	You may need to login with your Linux server account
-o	If Successful should prompt the key was installed on the server
+ * Select and open your recently generated public key stored “C:\Users\Username\.ssh”
+ * You may need to login with your Linux server account
+ * If Successful should prompt the key was installed on the server
 
