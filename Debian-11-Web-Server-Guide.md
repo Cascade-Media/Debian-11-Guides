@@ -170,3 +170,57 @@ on Windows using PowerShell, you should be able to access your server with the f
 ```
 ssh -p 22 -i ~/.ssh/privateKey username@serverIPaddress
 ```
+
+### PHP-FPM
+#### About
+PHP-FPM / PHP FastCGI Process Manager was chosen over mod_php as mod_php can lock out processes and disrupt performance of websites running, there are additional security benefits that PHP-FPM offer as well as optimal performance, allowing for of up to 300% - 350% faster loading times over mod_php.  
+### Installation & Setup
+See: [LinuxCapable - Install/Upgrade PHP 8.1 on Debian 11 Bullseye](https://www.linuxcapable.com/how-to-install-php-8-1-on-debian-11-bullseye/)  
+#### Update Debian System
+```
+$ sudo apt update && sudo apt upgrade -y
+```
+#### Install required Dependencies
+```
+$ sudo apt-get install ca-certificates apt-transport-https software-properties-common wget curl lsb-release -y
+```
+#### Import Sury PHP Repository
+```
+$ curl -sSL https://packages.sury.org/php/README.txt | sudo bash -x
+$ sudo apt update
+$ sudo apt upgrade
+```
+#### Install Apache2 with PHP 8.1
+```
+$ sudo apt install php8.1 libapache2-mod-php8.1
+$ sudo systemctl restart apache2
+```
+#### Upgrade Apache2 with PHP8.1-FPM & FastCGI
+```
+$ sudo apt install php8.1-fpm libapache2-mod-fcgid
+```
+#### Restart Apache
+```
+$ sudo systemctl restart apache2
+```
+#### Check Apache & PHP-FPM status
+```
+$ sudo systemctl status apache2
+$ sudo systemctl status php8.1-fpm
+```
+
+#### Check PHP version & extensions installed
+```
+$ php –version
+$ php -m
+```
+
+You may notice cURL is missing from the extensions list.  
+To resolve this, we can install curl for php, additionally if you’d like you can add MySQL for php to have access to a relational database.  
+
+Install the PHP cURL & MySQL Module and check extensions available.  
+See: [Supported Modules](https://help.superhosting.bg/en/php-modules.html)
+```
+$ sudo apt install php-curl php-mysql
+$ php -m
+```
