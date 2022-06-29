@@ -509,3 +509,20 @@ $ sudo systemctl restart apache2
 
 #### Check for SSL certificate is valid
 We can do this by checking the padlock on the target https domain in a browser such as Chrome, Edge, Firefox, etc..
+
+![image](https://user-images.githubusercontent.com/50721672/176329145-32229a26-4aa1-4293-9716-833f94e48976.png)
+
+#### Debugging
+-	If the domain is showing invalid, you may have misconfigured some settings on Apache, your DNS host.
+-	The DNS may not be validated for your IP address yet.
+-	The browser may have cached the active sessions certificate “restart browser or try another browser”
+-	You may be viewing the site over http instead of https, check the URL
+
+### Hiding your Apache Version and Operating System from Error Pages
+Hiding your Operating System and Apache server version is a good measure to take in order to help secure your server.  
+
+Obscurity is not a security measure, but it will make any potential attacks on the server harder to undertake.  
+
+When an error page is shown such as a 404, page not found, we get the following error message showcasing what Apache version, Operating System and Port the website is running on.  
+
+
