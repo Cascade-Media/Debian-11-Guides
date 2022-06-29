@@ -117,3 +117,14 @@ For applications you will be allowing through, you MUST allow the ports, otherwi
 - TCP : 443 : HTTPS
 - TCP : 22 : SSH & SCP
 
+## etsEncrypt
+LetsEncrypt allows you to generate SSL certificates for Domains that may require a HTTPS connection.
+
+This will be relevant for setting up websites, API’s and applications such as Gitlab and phpMyAdmin.
+### Installation
+```
+$ sudo apt install certbot python3-certbot-apache
+```
+### Usage
+Apache will be making use of cerbot to create and renew certificates.
+To see the process, see: [Register SSL Certificate](#registerSslCertificate)
