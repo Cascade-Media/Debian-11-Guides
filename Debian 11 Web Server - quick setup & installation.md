@@ -1,11 +1,11 @@
 # Debian 11 Web Server
 Quick setup & installation
 
-**Note**
-This script does not contain UFW
+> **Note**
+> This script does not contain UFW
 
-**Warning**
-This script is currently untested.  
+> **Warning**
+> This script is currently untested.  
 
 
 ```.sh
