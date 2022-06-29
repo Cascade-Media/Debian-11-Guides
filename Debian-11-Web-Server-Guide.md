@@ -933,3 +933,58 @@ $ sudo chmod 770 /var/www/html/company/project
 $ sudo chgrp userGroupName -R /var/www/html/company/project
 ```
 
+## SSHD_Config SSH & SFTP Settings
+To ensure the SSH server is correctly configured, you may need to alter a few settings for SSH.
+This file can be found in the following directory.  
+“/etc/ssh/sshd_config”  
+
+To open and modify this file we will need to open the terminal or SSH into the server terminal.  
+
+### Open file in nano
+```
+$ sudo nano /etc/ssh/sshd_config 
+```
+CTRL allows you to make use of the command mode in Nano.  
+The settings I have used are supplied below, once you enter the settings, you can save the file in nano using by holding CTRL and pressing O  
+
+### Settings
+```config  
+    Port 22
+
+    #MaxAuthTries 6
+    #MaxSessions 10
+
+    # Default Settings
+    PubkeyAuthentication yes
+    PasswordAuthentication no
+    ChallengeResponseAuthentication no
+
+    X11Forwarding yes
+    AllowAgentForwarding yes
+    PermitRootLogin no
+
+    LogLevel VERBOSE
+        
+    AllowTcpForwarding no
+    GatewayPorts no
+    PermitTunnel no
+
+    # Set this to 'yes' to enable PAM authentication, account processing,
+    # and session processing. If this is enabled, PAM authentication will
+    # be allowed through the ChallengeResponseAuthentication and
+    # PasswordAuthentication.  Depending on your PAM configuration,
+    # PAM authentication via ChallengeResponseAuthentication may bypass
+    # the setting of "PermitRootLogin without-password".
+    # If you just want the PAM account and session checks to run without
+    # PAM authentication, then enable this but set PasswordAuthentication
+    # and ChallengeResponseAuthentication to 'no'.
+    UsePAM yes
+    PrintMotd no
+
+    # Allow client to pass locale environment variables
+    AcceptEnv LANG LC_*
+
+    # override default of no subsystems
+    Subsystem   sftp    /usr/lib/openssh/sftp-server
+```
+
