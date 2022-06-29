@@ -1,11 +1,19 @@
-## Useful Commands
-### Nano
+# Useful Commands
+
+# Contents
+- [Useful Commands](#useful-commands)
+  - [Nano](#nano)
+  - [User Groups](#user-groups)
+  - [Directory Related](#directory-related)
+  - [Debug: Active Process](#debug-active-process)
+
+## Nano
 ```
 Open File: $ sudo nano /directory/filename.ext
 Save File: CTRL + S
 Search: CTRL + W
 ```
-### User Groups
+## User Groups
 ```
 Get all user groups: $ sudo getent group
 Delete Groups: $ sudo groupdel groupName
@@ -13,7 +21,7 @@ User groups: $ sudo groups username
 Add User to group: $ sudo usermod -a -G groupname username
 Remove User from group: $ sudo gpasswd –delete username group
 ```
-### Directory Related
+## Directory Related
 ```
 Make Directory: $ sudo mkdir /path/of/directory/folder1
 Remove Directory: $ sudo rmdir /path/of/directory/folder1
@@ -23,7 +31,7 @@ Change Ownership: $ sudo chown username:username  /path/of/directory/folder1
 Change Group ownership: $ sudo chgrp userGroupName -R /path/of/directory
 ```
 
-### Debug: Active Process
+## Debug: Active Process
 ```
 Locate active process
 Search for Port 8080 processes: $ sudo ps -ef | grep ':8080'
