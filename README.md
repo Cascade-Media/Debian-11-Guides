@@ -113,7 +113,7 @@ Documentation
 For applications you will be allowing through, you MUST allow the ports, otherwise services such as SFTP, SSH or SCP may not work.
 
 #### Standard Ports
-TPC : 80 / 8080 : HTTP
-TCP : 443 : HTTPS
-TCP : 22 : SSH & SCP
+- TPC : 80 / 8080 : HTTP
+- TCP : 443 : HTTPS
+- TCP : 22 : SSH & SCP
 
