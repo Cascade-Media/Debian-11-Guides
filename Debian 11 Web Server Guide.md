@@ -504,7 +504,7 @@ See: [Lets Encrypt - Challenge Types](https://letsencrypt.org/docs/challenge-typ
 
 #### Register a certificate
 ```
-$ sudo certbot –apache
+$ sudo certbot
 ```
 - Select your site by ID available.  
 - Select the most valid option available regarding your certificate.  
