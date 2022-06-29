@@ -224,3 +224,32 @@ See: [Supported Modules](https://help.superhosting.bg/en/php-modules.html)
 $ sudo apt install php-curl php-mysql
 $ php -m
 ```
+
+## Composer
+### About
+Composer is a dependency manager for PHP, allowing you to install packages from Packagist.  
+It  requires PHP to be installed on the intended system.  
+
+See: [Packagist](https://packagist.org/)
+See: [Download Composer](https://getcomposer.org/download/)
+### Installation & Setup
+#### Install Composer
+```
+$ php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+$ php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40b5f787e49f22d4c2f19492ac310e8cba5b96ac8b64115ac402c8cd292b8a03482574915d1a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+$ php composer-setup.php
+$ php -r "unlink('composer-setup.php');"
+```
+#### Move composer.phar to allow composer to function in all directories
+```
+$ sudo mv composer.phar /usr/local/bin/composer
+```
+#### Check Composer is functioning
+```
+CD to any directory
+$ composer about
+```
+
+#### Notes
+Once composer is installed and running with the configuration above, it should be usable on any system account that can access /usr/local/bin/composer  
+
