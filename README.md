@@ -1,5 +1,5 @@
 # Debian 11 Web Server Guide
-# Covering Packages, setup and management
+Covering Packages, setup and management
 
 ## Contents
 
