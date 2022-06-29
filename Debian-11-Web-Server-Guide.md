@@ -2,6 +2,8 @@
 Packages, setup and management
 
 ## Contents
+<details>
+  <summary>View Table of Contents</summary>
 - [Debian 11 Web Server Guide](#debian-11-web-server-guide)
   * [About](#about)
   * [Setup Considerations](#setup-considerations)
@@ -164,6 +166,7 @@ Packages, setup and management
     + [User Groups](#user-groups)
     + [Directory Related](#directory-related)
     + [Debug: Active Process](#debug--active-process)
+</details>
 
 ## About
 This guide aims to assist with setting up and managing a web server running a range of powerful and complex packages.  
