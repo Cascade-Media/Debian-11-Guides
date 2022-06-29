@@ -1,6 +1,8 @@
 # Debian 11 Web Server Guide
 Packages, setup and management
 
+Copyright 2022 Cascade Media
+
 ## Contents
 - [Debian 11 Web Server Guide](#debian-11-web-server-guide)
   * [About](#about)
