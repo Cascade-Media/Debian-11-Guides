@@ -117,7 +117,7 @@ For applications you will be allowing through, you MUST allow the ports, otherwi
 - TCP : 443 : HTTPS
 - TCP : 22 : SSH & SCP
 
-## etsEncrypt
+## LetsEncrypt
 LetsEncrypt allows you to generate SSL certificates for Domains that may require a HTTPS connection.  
 
 This will be relevant for setting up websites, API’s and applications such as Gitlab and phpMyAdmin.  
