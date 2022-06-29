@@ -748,3 +748,12 @@ $cfg['TempDir'] = '/var/www/html/services/phpmyadmin/temp';
 Save: CTRL + O
 Exit: CRTL + X
 
+## Accessing PHPMyAdmin
+Once Apache has been restarted, you should be able to access your phpMyAdmin panel through localhost/phpmyadmin or 127.0.0.1/phpmyadmin  
+![image](https://user-images.githubusercontent.com/50721672/176330762-1cbcb34a-d63f-499d-808a-ff977223dcbd.png)
+
+it is possible to setup a domain name to point to the server, this will be covered later in the guide.  
+### Notes
+#### Login Debugging
+In the event you are unable to login, it may help to clear you application memory browser cache.  
+
