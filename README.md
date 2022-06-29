@@ -37,7 +37,9 @@ About
 Allows the system to update security packages (and other) updates automatically
 
 Installation
+```
 $ sudo apt-get install unattended-upgrades apt-listchanges
+```
 
 OpenSSH Server
 OpenSSH is required in order for the user to be able to remotely access the server through secure shell.
@@ -45,16 +47,24 @@ See: LinuxHint: Enable SSH Server on Debian
 
 Installation & Setup
 Install open ssh server
+```
 $ sudo apt-get install openssh-server
+```
 
 Enable the ssh server 
+```
 $ sudo systemctl enable ssh
+```
 
 Start SSH
+```
 $ sudo systemctl start ssh
+```
 
 Check SSH status
+```
 $ sudo systemctl status ssh
+```
 
 Security: disable Root SSH access
 See: [MediaTemple: How do I disable SSH login for the root user?](https://mediatemple.net/community/products/dv/204643810/how-do-i-disable-ssh-login-for-the-root-user#:~:text=Verify%20that%20you%20can%20su,root%20with%20the%20admin%20user.&text=To%20disable%20root%20SSH%20login,with%20your%20favorite%20text%20editor.&text=Ensure%20that%20you%20are%20logged,yourself%20out%20of%20the%20server.)
@@ -67,10 +77,14 @@ You are free to modify the file with any method available.
 Once open you should modify the following.
 
 From
+```
 #PermitRootLogin prohibit-password
+```
 
 To
+```
 PermitRootLogin no
+```
 
 Once done, save the file and close.
 Root will now no longer be able to make use of SSH
