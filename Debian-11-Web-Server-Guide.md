@@ -743,5 +743,8 @@ $cfg['blowfish_secret'] = 'YOUR SECRET PASSPHRASE'; /* YOU MUST FILL IN THIS FOR
  * Temporary Directory
  */
 $cfg['TempDir'] = '/var/www/html/services/phpmyadmin/temp';
-
 ```
+#### To Save the file in Nano, then close
+Save: CTRL + O
+Exit: CRTL + X
+
