@@ -245,8 +245,8 @@ $ php -r "unlink('composer-setup.php');"
 $ sudo mv composer.phar /usr/local/bin/composer
 ```
 #### Check Composer is functioning
+CD to any directory  
 ```
-CD to any directory
 $ composer about
 ```
 
