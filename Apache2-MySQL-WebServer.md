@@ -60,11 +60,6 @@ Packages, setup and management
   - [Settings](#settings)
 - [Debug Notes](#debug-notes)
   - [WinSCP](#winscp)
-- [Useful Commands](#useful-commands)
-  - [Nano](#nano)
-  - [User Groups](#user-groups)
-  - [Directory Related](#directory-related)
-  - [Debug: Active Process](#debug-active-process)
 
 ## About
 This guide aims to assist with setting up and managing a web server running a range of powerful and complex packages.  
