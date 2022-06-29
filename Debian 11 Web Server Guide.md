@@ -773,7 +773,7 @@ The following command takes your public RSA encryption key and stores it on the 
 If you’re not sure what your IP address is, there are many services that can help.  
 See: [myip.com](https://www.myip.com/)
 
-#### Template SSH Login over Windows Powershell
+#### SCP Login over Windows Powershell
 ```
 scp $env:USERPROFILE/.ssh/<<DIRECTORY>>/<<FILENAME>>.pub <<SERVER USERNAME>>@<<SERVER IP>>:~/.ssh 
 ```
