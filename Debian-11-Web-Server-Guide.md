@@ -1051,6 +1051,7 @@ Add User to group: $ sudo usermod -a -G groupname username
 Remove User from group: $ sudo gpasswd –delete username group
 ```
 ### Directory Related
+```
 Make Directory: $ sudo mkdir /path/of/directory/folder1
 Remove Directory: $ sudo rmdir /path/of/directory/folder1
 Remove Directory and Contents: $ sudo rm -r /path/of/directory/folder1
