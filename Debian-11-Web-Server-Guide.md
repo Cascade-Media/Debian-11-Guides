@@ -254,10 +254,10 @@ on Windows using PowerShell, you should be able to access your server with the f
 ssh -p 22 -i ~/.ssh/privateKey username@serverIPaddress
 ```
 
-### PHP-FPM
-#### About
+## PHP-FPM
+### About
 PHP-FPM / PHP FastCGI Process Manager was chosen over mod_php as mod_php can lock out processes and disrupt performance of websites running, there are additional security benefits that PHP-FPM offer as well as optimal performance, allowing for of up to 300% - 350% faster loading times over mod_php.  
-#### Installation & Setup
+### Installation & Setup
 See: [LinuxCapable - Install/Upgrade PHP 8.1 on Debian 11 Bullseye](https://www.linuxcapable.com/how-to-install-php-8-1-on-debian-11-bullseye/)  
 #### Update Debian System
 ```
@@ -655,5 +655,23 @@ $ sudo apt autoremove mariadb-server mariadb-client --purge -y
 ```
 $ sudo rm /etc/apt/sources.list.d/mariadb.list
 $ sudo apt update
+```
+
+## PHPMyAdmin
+PhpMyAdmin is a graphical user interface tool(GUI) that works with MySQL MariaDB, this tool allows you to login to a webserver and manage the database through the GUI. 
+### Important Notice
+PHP 8.1.4 supports PhpMyAdmin 5.1.3, however you may encounter issues exporting or backing up your database, for this reason it is recommended that you avoid installing PhpMyAdmin 5.1.3 on PHP 8.1.4 or later as this is a known issue. 
+see: [Export is not working on v5.1.3 (PHP version: 8.1.4) #17477](https://github.com/phpmyadmin/phpmyadmin/issues/17477) 
+### Requirements
+MariaDB and Apache **MUST** be installed, before continuing.  
+
+Apache: [Installation & Setup](PHP-FPM)
+MariaDB: [Installation & Setup](MariaDB)
+In this guide, Apache was installed with the PHP-FPM configuration, you may install a different variant at your own discretion.  
+
+#### mbstring Apache Module
+This module is required for phpMyAdmin
+```
+$ sudo apt-get install php-mbstring
 ```
 
