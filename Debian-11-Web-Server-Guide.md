@@ -159,5 +159,14 @@ $ sudo nano /etc/apache2/ports.conf
 Apply the appropriate port listening settings to port.conf  
 
 ![image](https://user-images.githubusercontent.com/50721672/176326968-ca39ef67-14d3-4ebb-bb06-8de79f2ae25a.png)
+Save: CTRL + S  
+Exit: CTRL + X  
 
+#### SSH
+SSH uses Port 22 by default, but can be altered to use any other available port.  
+With OpenSSH running, you should be able to SSH into your server through a remote terminal with the use of an SSH private key as long as the server has the corresponding public key.  
 
+on Windows using PowerShell, you should be able to access your server with the following command.  
+```
+ssh -p 22 -i ~/.ssh/privateKey username@serverIPaddress
+```
