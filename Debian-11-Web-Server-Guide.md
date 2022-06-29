@@ -1068,9 +1068,8 @@ Kill Certbot Process
 Error: Another instance of Certbot is already running.
 Find active Certbot processes: $ ps -ef | grep certbot
 
-![image](https://user-images.githubusercontent.com/50721672/176333367-e3a35347-c348-4123-aaa6-fe2634bf3c26.png)
-
 Kill Certbot processes
 Note: The process id shown in this image may be different from your own.
 $ sudo kill 47666
 ```
+![image](https://user-images.githubusercontent.com/50721672/176333367-e3a35347-c348-4123-aaa6-fe2634bf3c26.png)
