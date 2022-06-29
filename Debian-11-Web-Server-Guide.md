@@ -361,3 +361,28 @@ $ sudo nano /etc/resolv.conf
 ```
 options single-request-reopen
 ```
+
+## Apache Site Settings
+Each website should have its own virtual host configuration in order to load on a specific port, domain and with a security certificate in the form of SSL / TLS.  
+Additionally each website can have its own directory and file permissions in order to limit or prevent access to certain files in projects, these files may include .env which often contain sensitive information such as private, public and API keys.  
+
+Under the directory /etc/apache2/sites-available/ are likely two files “000-default.con” and “default-ssl.conf”  
+
+These are necessary to load the apache2 Debian Default Page shown in the above image.  
+### Creating Directories and setting Group permissions
+When creating new directories for your projects, you will likely need to setup directory ownership and read, write, execute permissions.  
+
+#### Creating directories for each user account
+```
+$ sudo mkdir /var/www/html/username
+```
+#### Creating directories for each domain and subdomain
+```
+$ sudo mkdir /var/www/html/username/example.com
+$ sudo mkdir /var/www/html/username/example.com/www.example.com
+```
+
+#### Assign user permissions to the directories
+```
+$ sudo chown -R username:www-data /var/www/html/username
+```
