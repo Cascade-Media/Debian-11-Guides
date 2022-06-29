@@ -682,3 +682,54 @@ See: [How To Install phpMyAdmin on Debian 11/Debian 10](https://computingforgeek
 $ sudo apt -y update
 $ sudo apt -y install wget php php-cgi php-pear php-mbstring libapache2-mod-php php-common php-phpseclib php-mysql php8.1-mysql
 ```
+
+#### Download the latest version of phpMyAdmin
+```
+$ cd ~
+$ DATA="$(wget https://www.phpmyadmin.net/home_page/version.txt -q -O-)" 
+URL="$(echo $DATA | cut -d ' ' -f 3)" 
+VERSION="$(echo $DATA | cut -d ' ' -f 1)" 
+wget https://files.phpmyadmin.net/phpMyAdmin/${VERSION}/phpMyAdmin-${VERSION}-all-languages.tar.gz
+```
+#### Extract downloaded archive
+```
+$ tar xvf phpMyAdmin-${VERSION}-all-languages.tar.gz
+```
+#### Move the default phpMyAdmin installation folder and rename folder
+```
+$ sudo mv phpMyAdmin-*/ /var/www/html/services
+```
+#### Depending on the version installed of your phpmyadmin, you may need to type in your folder name manually in the command below.
+```
+$ cd /var/www/html/services/
+$ sudo mv phpMyAdmin-5.2.0-all-languages phpmyadmin
+```
+#### Create temporary files folder for phpMyAdmin
+```
+$ cd /var/www/html/services/phpmyadmin
+$ sudo mkdir temp
+```
+#### Give ownership of phpMyAdmin folder to www-data user group
+```
+$ sudo chown -R www-data:www-data /var/www/html/services/phpmyadmin
+Change permissions and ownership of Temp directory
+$ sudo chmod 755 /var/www/html/services/phpmyadmin/temp/
+$ sudo chown www-data:www-data /var/www/html/services/phpmyadmin/temp/
+```
+#### Make a config file using a copy of the config. Sample
+```
+$ sudo cp /var/www/html/services/phpmyadmin/config.sample.inc.php  /var/www/html/services/phpmyadmin/config.inc.php
+```
+#### Secure phpMyAdmin with secret passphrase
+Generate a secret passphrase and use it in the blowfish secret config.  
+a very strong password method is advised and MUST BE 32 characters long.  
+
+#### Open phpMyAdmin’s configuration file
+```
+$ sudo nano /var/www/html/services/phpmyadmin/config.inc.php
+```
+
+#### Enter or modify the following
+```php
+$cfg[‘blowfish_secret] = ‘YOUR  SECRET PASSPHRASE’;
+```
