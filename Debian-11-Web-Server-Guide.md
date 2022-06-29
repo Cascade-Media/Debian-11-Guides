@@ -986,5 +986,52 @@ The settings I have used are supplied below, once you enter the settings, you ca
 
     # override default of no subsystems
     Subsystem   sftp    /usr/lib/openssh/sftp-server
+
+    # Match Users can either be a specific user account 
+    # or target user group 
+
+    # Example of overriding settings on a per-user basis
+    #Match User example
+    #   X11Forwarding no
+    #   AllowTcpForwarding no
+    #   PermitTTY no
+    #   ForceCommand cvs server
+
+    # Subsystem sftp interal-sftp
+    # SFTP User
+    Match User sftp_username
+        X11Forwarding no
+        AllowTcpForwarding no
+
+    # Disable the below 3 settings (#) and set passwordAuthentication
+    # to yes for sftp_users and restart sshd if you need to 
+    # create or renew an SSH certificate for WinSCP usage
+        Chrootdirectory /var/www/html/username
+        ForceCommand internal-sftp -d /default
+        AuthorizedKeysFile .ssh/ key_01.pub .ssh/authorized_keys
+        # PasswordAuthentication yes 
+
+    # SSH User
+    Match user ssh_username
+        X11Forwarding no
+        AllowTcpForwarding yes
+        AuthorizedKeysFile .ssh/key_03.pub
+        PasswordAuthentication no
+
 ```
+Once you have the settings configured to your requirements, save and close the file, then restart SSH and SSHD.  
+```
+$ sudo systemctl restart ssh
+$ sudo systemctl restart sshd
+```
+
+## Debug Notes
+### WinSCP
+While using WinSCP, you may encounter an issue with SFTP with the Group sharing access.  
+If this is the case, and you receive an error “upload of file .. was successful, but error occurred while setting the permissions and/or timestamp.  
+make use of WinSCP's Common Error Message Guide for file uploads.  
+
+Disabling the “Preserve Timestamp” in most cases like likely fix the file upload issue notice.  
+In WinSCP, This can be found under Options > Preferences > Transfer : select Default > Edit  
+See: [Transfer Settings Dialog](https://winscp.net/eng/docs/ui_transfer_custom) 
 
