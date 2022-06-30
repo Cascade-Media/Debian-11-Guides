@@ -8,6 +8,7 @@ a simplified, broken down list of Linux Debian commands that may be useful.
 
 ## Debian 11 Web Server
 [Debian 11 Web Server Guide](https://github.com/Cascade-Media/Debian-11-Guides/blob/main/Debian%2011%20Web%20Server%20Guide.md)  
+[Untested: Quick Setup & Installation](https://github.com/Cascade-Media/Debian-11-Guides/blob/main/Debian%2011%20Web%20Server%20-%20Quick%20setup%20%26%20installation.md)
 
 A guide to help setup and manage an Web Server with the following packages.
 - Apache
