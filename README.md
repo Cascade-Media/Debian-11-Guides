@@ -21,4 +21,4 @@ A guide to help setup and manage an Web Server with the following packages.
 - OpenSSH Server
 
 ## Copyright
-2022 Cascade Media 
+© 2022 Cascade Media 
